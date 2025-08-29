@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AZ-305 刷题器（本地版）</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="app-header">
+  <h1>AZ-305 刷题器</h1>
+  <div class="sub">离线 · 单文件前端 · 可部署到 GitHub Pages</div>
+</header>
+
+<section class="toolbar">
+  <input id="searchInput" type="search" placeholder="搜索题干/选项…" />
+  <select id="topicFilter"></select>
+  <select id="typeFilter">
+    <option value="">全部类型</option>
+    <option value="single_or_multi">选择题</option>
+    <option value="hotspot_or_dragdrop_or_open">热点/拖放/开放题</option>
+  </select>
+  <button id="shuffleBtn">随机</button>
+  <button id="examModeBtn">模拟考试（50题）</button>
+  <button id="reviewWrongBtn">错题本</button>
+  <button id="exportBtn">导出进度</button>
+  <button id="importBtn">导入答案/进度</button>
+  <label class="toggle">
+    <input type="checkbox" id="darkToggle" />
+    <span>深色</span>
+  </label>
+</section>
+
+<main id="quizContainer"></main>
+
+<footer class="app-footer">
+  <div id="status"></div>
+  <div>本题库来源：你上传的“AZ-305 Exam - 题目.pdf”。答案若缺失，可点击“导入答案/进度”加载答案键。</div>
+</footer>
+
+<!-- 轻量弹窗 -->
+<dialog id="modal">
+  <form method="dialog">
+    <h3 id="modalTitle">导入</h3>
+    <textarea id="modalText" placeholder='在此粘贴 JSON，例如：{"answers": {"1": "A", "2": "B"}}'></textarea>
+    <div class="modal-actions">
+      <button id="modalConfirm" value="ok">确定</button>
+      <button value="cancel">取消</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
